@@ -7,7 +7,7 @@ function ArffWriter(dir, fname, data, withClass)
 % Example:  ArffWriter([pwd,'/results/'], 'datafile', x);
 %           
 % Author: Luiz F. S. Coletta (luiz.fersc@gmail.com) - 30/01/18
-% Update: Luiz F. S. Coletta - 06/02/18
+% Update: Luiz F. S. Coletta - 07/02/18
 % ************************************************************************* 
 
 sss=size(data,2)-1;
