@@ -1,4 +1,4 @@
-function [labfeat] = EFLAB(img)
+function [labfeat] = EFLAB(img, vetFeatures)
 
           labsub = EFRGB2LAB(img);   
           L = labsub(:,:,1);
@@ -16,6 +16,15 @@ function [labfeat] = EFLAB(img)
           avgX = mean(X);
           avgY = mean(Y);
           avgZ = mean(Z);
-          %labfeat = [avgX, avgY, avgZ];
-          labfeat = [avgX];
+          
+          labfeat = [];
+          if (vetFeatures(1)==1)
+              labfeat = [labfeat, avgX];
+          end
+          if (vetFeatures(2)==1)
+              labfeat = [labfeat, avgY];
+          end
+          if (vetFeatures(3)==1)
+              labfeat = [labfeat, avgZ];
+          end
 end

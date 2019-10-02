@@ -21,8 +21,8 @@ function [dataset] = EFMain(nameDataset, sizeSubImage, vetDescriptors, normalize
        sSubImage = sizeSubImage;
    end
    
-   vDescriptors = [0, ... % CIE-LAB (2 features)
-                   1, ... % BIC
+   vDescriptors = [1, ... % CIE-LAB (2 features)
+                   0, ... % BIC
                    0];    % Haralick6
    if (nargin >= 3)
        vDescriptors = vetDescriptors;
@@ -100,7 +100,7 @@ function [dataset] = EFMain(nameDataset, sizeSubImage, vetDescriptors, normalize
           for k = 1:cols/width % iterate getting subimages from current file (columns)
 
               p = [nameFile, '-', int2str(j), 'x', int2str(k)];
-              position = [position; [p, repmat(' ', [1,20-size(p,2)])]];
+              position = [position; [p, repmat(' ', [1,50-size(p,2)])]];
 
               fprintf('Extracting features of %s - [%d x %d]\n', nameFile, j, k);
 
@@ -134,7 +134,7 @@ function [dataset] = EFMain(nameDataset, sizeSubImage, vetDescriptors, normalize
 
               if (vDescriptors(1)) 
                  % generates 2 features (avg(a*) and avg(b*))
-                 lab_features = EFLAB(subImage);
+                 lab_features = EFLAB(subImage, [0,1,1]);
                  featureVector = lab_features;
               end
 

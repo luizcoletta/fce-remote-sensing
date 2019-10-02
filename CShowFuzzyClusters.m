@@ -2,7 +2,7 @@ function [] = CShowFuzzyClusters(pathImage, sizeSubImage, U)
    % *************************************************************************
    % ExtractSubImgFeatures: show recognized patterns in red on image files
    %              
-   % Example: ShowFuzzyPatterns([pwd, '/Beans.png'], 16, U)
+   % Example: CShowFuzzyClusters([pwd, '/images/cana_raizen.tif'], 24, ans)
    %           
    % Author: Luiz F. S. Coletta (luiz.fersc@gmail.com) - 30/01/18
    % Update: Luiz F. S. Coletta - 07/02/18
@@ -30,7 +30,7 @@ function [] = CShowFuzzyClusters(pathImage, sizeSubImage, U)
    cluster5 = fullImage;
    cluster6 = fullImage;
    
-   threshold = 0.3;
+   threshold = 0.2;
    
    for j = 1:rows/width % iterate getting subimages from current file (lines)
 
@@ -41,14 +41,14 @@ function [] = CShowFuzzyClusters(pathImage, sizeSubImage, U)
           
           try
              
-             if (U(1,i) >= threshold)
+             if (U(2,i) >= threshold)
                  cluster1(top+1:(top+1+height),left+1:(left+1+width),1) = U(1,i)*(255/1);
              end 
              
-             if (U(2,i) >= threshold)
-                 %cluster2(top+1:(top+1+height),left+1:(left+1+width),1) = U(2,i)*(150);
-                 cluster2(top+1:(top+1+height),left+1:(left+1+width),2) = U(2,i)*(255);
-                 %cluster2(top+1:(top+1+height),left+1:(left+1+width),3) = U(2,i)*(150);
+             if (U(1,i) >= threshold)
+                 %cluster2(top+1:(top+1+height),left+1:(left+1+width),1) = U(2,i)*(255);
+                 %cluster2(top+1:(top+1+height),left+1:(left+1+width),2) = U(2,i)*(255);
+                 cluster2(top+1:(top+1+height),left+1:(left+1+width),3) = U(1,i)*(255);
              end
              
              if (U(3,i) >= threshold)
@@ -94,22 +94,22 @@ function [] = CShowFuzzyClusters(pathImage, sizeSubImage, U)
    end 
 
    figure
-   subplot(2,3,1);
-   imshow(cluster1);
+   %subplot(2,3,1);
+   %imshow(cluster1);
    
-   subplot(2,3,2);
+   %subplot(2,3,2);
    imshow(cluster2);
    
-   subplot(2,3,3);
-   imshow(cluster3);
+   %subplot(2,3,3);
+   %imshow(cluster3);
    
-   subplot(2,3,4);
-   imshow(cluster4);
+   %subplot(2,3,4);
+   %imshow(cluster4);
    
-   subplot(2,3,5);
-   imshow(cluster5);
+   %subplot(2,3,5);
+   %imshow(cluster5);
    
-   subplot(2,3,6);
-   imshow(cluster6);
+   %subplot(2,3,6);
+   %imshow(cluster6);
    
 end

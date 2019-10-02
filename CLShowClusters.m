@@ -135,22 +135,22 @@ function [] = CLShowClusters(pathImage, sizeSubImage, U)
    end
 
    figure
-   subplot(2,3,1);
+   %subplot(2,3,1);
    imshow(cluster1);
    
-   subplot(2,3,2);
-   imshow(cluster2);
+   %subplot(2,3,2);
+   %imshow(cluster2);
    
-   subplot(2,3,3);
-   imshow(cluster3);
+   %subplot(2,3,3);
+   %imshow(cluster3);
    
-   subplot(2,3,4);
-   imshow(cluster4);
+   %subplot(2,3,4);
+   %imshow(cluster4);
    
-   subplot(2,3,5);
-   imshow(cluster5);
+   %subplot(2,3,5);
+   %imshow(cluster5);
    
-   subplot(2,3,6);
-   imshow(cluster6);
+   %subplot(2,3,6);
+   %imshow(cluster6);
    
 end
